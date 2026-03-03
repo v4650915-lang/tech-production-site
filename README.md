@@ -1,36 +1,307 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏢 РПК "Технология" - Сайт производственной компании
 
-## Getting Started
+**Версия:** 2.0  
+**Дата:** Март 2026  
+**Статус:** ✅ Готово к production
 
-First, run the development server:
+---
 
+## 📋 О проекте
+
+Профессиональный сайт для рекламно-производственной компании "Технология" (Нижневартовск).  
+Сочетает интерактивные калькуляторы услуг, каталог продукции и админ-панель для управления.
+
+### 🔗 Ссылки
+- **Production:** [будет добавлен после деплоя]
+- **Admin Panel:** `/admin/login`
+- **VK Group:** [vk.com/club](https://vk.com/club)
+
+---
+
+## 🛠 Технологический стек
+
+| Категория | Технология |
+|-----------|------------|
+| **Framework** | Next.js 16 (App Router) |
+| **Styling** | Tailwind CSS v4 |
+| **UI Components** | shadcn/ui |
+| **Animation** | Framer Motion |
+| **Database** | Supabase (PostgreSQL) |
+| **Auth** | Supabase Auth |
+| **Storage** | Supabase Storage |
+| **Notifications** | VK Bot API |
+| **Forms** | React Hook Form + Zod |
+| **Icons** | Lucide React |
+
+---
+
+## 🚀 Быстрый старт
+
+### 1. Установка зависимостей
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Настройка окружения
+Создайте файл `.env.local` в корне проекта:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+# VK Bot API (из Bot-VK-Anna)
+VK_TOKEN=vk1.a.bsqSt3Tqpk88_fBenJbs6EfmQ5YoEJII8d_wnpprxQQLEvjNTuTitDnkaaf84KrUxihi4NOQyIBm0EI7TADIXzADVAUTuGmiGVPIuhQVehQVffOq41v7lA3AEQdR5AkQSinOfR1B2Sh3YqoqIUfCd7alS7tNnQO9Q8rM72aUvoTKskK1VAnJPRKF2_qri869iR8Ep7NjWrrmm9OVlnaoOlp0yA
+VK_ADMIN_ID=5537151
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=https://cnxpprtssdonjoaynqft.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_inwPF8i9MnTD0kmFIxuu7g_Mki_JMkC
+```
 
-## Learn More
+### 3. Настройка Supabase
+Следуйте инструкции в файле `SUPABASE_SETUP.md`:
+- Выполните SQL скрипт для создания таблиц
+- Настройте Storage bucket для изображений
+- Создайте пользователя админ-панели
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Запуск
+```bash
+# Development
+npm run dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Production build
+npm run build
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📁 Структура проекта
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+test_qwencode/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── admin/              # Админ-панель
+│   │   │   ├── login/          # Страница входа
+│   │   │   ├── dashboard/      # Дашборд
+│   │   │   ├── products/       # Управление продуктами
+│   │   │   └── orders/         # Заказы
+│   │   ├── legal/              # Юридические документы
+│   │   ├── layout.tsx          # Основной layout
+│   │   └── page.tsx            # Главная страница
+│   ├── components/
+│   │   ├── calculators/        # Калькуляторы услуг
+│   │   ├── layout/             # Header, Footer
+│   │   ├── showcase/           # Витрина продуктов
+│   │   │   ├── showcase.tsx    # Услуги (карточки)
+│   │   │   ├── signs-showcase.tsx  # Вывески (11 шт)
+│   │   │   ├── laser-portfolio.tsx # Лазерная резка (10 шт)
+│   │   │   └── service-card.tsx
+│   │   └── ui/                 # shadcn/ui компоненты
+│   ├── contexts/               # React Context (Cart, Auth)
+│   ├── hooks/                  # Custom hooks
+│   └── lib/                    # Утилиты, типы, Supabase client
+├── public/
+│   ├── images/                 # Изображения вывесок (11 шт)
+│   ├── laser_cutting/          # Лазерная резка и мангалы (10 шт)
+│   └── legal/                  # Публичная оферта, Условия
+├── supabase-schema.sql         # SQL схема БД
+├── SUPABASE_SETUP.md          # Инструкция по настройке
+└── README.md                   # Этот файл
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🖼️ Каталог продуктов
+
+### Вывески (11 продуктов)
+Расположены в `public/images/`. Загружаются из Supabase (категория `signs`).
+
+| Продукт | Цена |
+|---------|------|
+| Стоматология | 35 000 ₽ |
+| Кафе / Бар | 14 800 ₽ |
+| Торговый павильон | от 350 000 ₽ |
+| ... | ... |
+
+### Лазерная резка и мангалы (10 продуктов)
+Расположены в `public/laser_cutting/`. **Цена по запросу** (price = 0).
+
+| Продукт | Категория |
+|---------|-----------|
+| Мангалы с лазерной резкой | Мангалы |
+| Мангальные беседки | Мангалы |
+| Журнальный стол | Мебель |
+| Приставные столики | Мебель |
+| Табличка лазерная резка | Таблички |
+| ... | ... |
+
+---
+
+## 💰 Бизнес-логика калькуляторов
+
+### 1. Широкоформатная печать
+| Материал | до 50 м² | от 50 м² |
+|----------|----------|----------|
+| Баннер 340г | 350 ₽/м² | 300 ₽/м² |
+| Баннер 440г | 420 ₽/м² | 370 ₽/м² |
+| Баннер 510г | 490 ₽/м² | 440 ₽/м² |
+| Сетка | 550 ₽/м² | 480 ₽/м² |
+| Пленка | 380 ₽/м² | 320 ₽/м² |
+
+**Дополнительно:**
+- Люверсы Ø10мм: 21 ₽/шт
+- Люверсы Ø12мм: 26 ₽/шт
+- Проклейка: 55 ₽/пог.м
+
+### 2. ЧПУ/Лазерная резка
+Цена за погонный метр снижается при заказе от 100 пог.м
+
+**ЧПУ материалы:**
+- ПВХ 3-10мм: 75-150 ₽/м → 65-130 ₽/м
+- Акрил 3-5мм: 90-120 ₽/м → 80-100 ₽/м
+- АКП 3мм: 100 ₽/м → 85 ₽/м
+- Фанера 6-10мм: 70-120 ₽/м → 60-100 ₽/м
+
+**Лазерная резка:**
+- Акрил 3-8мм: 110-220 ₽/м → 95-190 ₽/м
+- Дерево 3-10мм: 80-200 ₽/м → 70-170 ₽/м
+- Войлок/Кожа: 90-130 ₽/м → 75-110 ₽/м
+
+**Наценка за мелкие детали:** +30%
+
+### 3. УФ-печать
+- На материале заказчика: 800 ₽/м²
+- На материале компании: 1200 ₽/м²
+- Белый цвет: +500 ₽/м²
+- Лакирование: +20%
+
+### 4. Мобильные стенды и сувениры
+**Roll-up стенды:**
+- 1-5 шт: 3020 ₽
+- 6-10 шт: 2800 ₽
+- от 11 шт: 2500 ₽
+
+**Кружки (сублимация):**
+- 1-9 шт: 470 ₽
+- 10-49 шт: 350 ₽
+- 50-99 шт: 280 ₽
+- от 100 шт: 230 ₽
+
+---
+
+## 🔐 Админ-панель
+
+### Возможности
+- ✅ **Auth:** Вход через Supabase Auth
+- ✅ **Products CRUD:** Добавление, редактирование, удаление товаров
+- ✅ **Orders:** Просмотр заказов, смена статусов
+- ✅ **Storage:** Загрузка изображений в Supabase Storage
+- ✅ **Mobile:** Полностью адаптивный интерфейс
+
+### Маршруты
+| URL | Описание |
+|-----|----------|
+| `/admin/login` | Вход |
+| `/admin/dashboard` | Дашборд |
+| `/admin/products` | Список продуктов |
+| `/admin/products/new` | Новый продукт |
+| `/admin/orders` | Заказы |
+
+---
+
+## 🔔 VK уведомления
+
+При оформлении заказа менеджеру `id5537151` отправляется сообщение:
+
+```
+🔔 НОВЫЙ ЗАКАЗ НА САЙТЕ
+━━━━━━━━━━━━━━━━━━━━━━
+
+👤 Клиент: Иван Иванов
+📞 Телефон: +7 (999) 000-00-00
+
+📦 ЗАКАЗ:
+1. Широкоформатная печать (Баннер)
+   • Кол-во: 1 шт.
+   • Сумма: 2 520 ₽
+
+💰 ИТОГО: 2 520 ₽
+```
+
+---
+
+## 📱 Мобильная версия
+
+- ✅ Адаптивная шапка и подвал
+- ✅ Мобильное меню (Sheet)
+- ✅ Калькуляторы оптимизированы для touch
+- ✅ Корзина и оформление заказа
+- ✅ Админ-панель работает на смартфоне
+
+---
+
+## 🎨 Дизайн-система
+
+### Цветовая схема "Soft Stone"
+- **Фон:** `stone-50` (мягкий кремовый/каменный)
+- **Текст:** `zinc-900`
+- **Акцент:** `stone-200/300`
+
+### Шрифты
+- **Заголовки:** Montserrat (400-800)
+- **Текст:** Inter (400-700)
+
+### Компоненты
+Все UI компоненты из [shadcn/ui](https://ui.shadcn.com):
+- Button, Card, Input, Select
+- Dialog, Sheet, Toast
+- Table, Badge, Separator
+- Form, Label, Textarea
+
+---
+
+## 📊 База данных
+
+### Таблица `products`
+```sql
+id, name, description, price, image_url, category, created_at, updated_at
+```
+
+### Таблица `orders`
+```sql
+id, customer_name, customer_phone, customer_email, 
+items (JSONB), total_amount, status, comment, 
+created_at, updated_at
+```
+
+---
+
+## ✅ Чек-лист перед запуском
+
+- [ ] Выполнен `supabase-schema.sql`
+- [ ] Создан бакет `products` в Storage
+- [ ] Настроены RLS политики
+- [ ] Создан пользователь админ-панели
+- [ ] Заполнены 11 продуктов (вывески)
+- [ ] Проверены VK уведомления
+- [ ] Протестирована мобильная версия
+- [ ] Ссылки на оферту работают
+
+---
+
+## 📞 Контакты
+
+**РПК "Технология"**  
+📍 ХМАО-Югра, г. Нижневартовск, ул. Мира, ЗП, стр. 1  
+📞 8 (3466) 31-22-04, 63-63-29  
+📧 uv-nv@mail.ru  
+⏰ Пн-Пт: 9:00 - 18:00
+
+**ООО «Альянс-Менеджмент НВ»**  
+ИНН: 8603191776  
+ОГРН: 1128603020897
+
+---
+
+## 📝 Лицензия
+
+© 2026 РПК «Технология». Все права защищены.
