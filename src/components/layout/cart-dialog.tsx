@@ -137,7 +137,7 @@ export function CartDialog({ open, onOpenChange }: CartDialogProps) {
             </DialogDescription>
           )}
         </DialogHeader>
-        
+
         {orderStep === "success" ? (
           <div className="text-center py-8">
             <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
@@ -164,7 +164,7 @@ export function CartDialog({ open, onOpenChange }: CartDialogProps) {
                 <p className="text-sm text-destructive mt-1">{errors.name.message}</p>
               )}
             </div>
-            
+
             <div>
               <Label htmlFor="phone">Телефон *</Label>
               <Input
@@ -176,7 +176,7 @@ export function CartDialog({ open, onOpenChange }: CartDialogProps) {
                 <p className="text-sm text-destructive mt-1">{errors.phone.message}</p>
               )}
             </div>
-            
+
             <div>
               <Label htmlFor="email">Email</Label>
               <Input
@@ -189,7 +189,7 @@ export function CartDialog({ open, onOpenChange }: CartDialogProps) {
                 <p className="text-sm text-destructive mt-1">{errors.email.message}</p>
               )}
             </div>
-            
+
             <div>
               <Label htmlFor="comment">Комментарий к заказу</Label>
               <Textarea
@@ -209,11 +209,11 @@ export function CartDialog({ open, onOpenChange }: CartDialogProps) {
               />
               <Label htmlFor="agreeToTerms" className="text-sm font-normal">
                 Я согласен с{" "}
-                <a href="/legal/public-offer.md" target="_blank" className="text-primary underline">
+                <a href="/legal/public-offer" target="_blank" className="text-primary underline">
                   публичной офертой
                 </a>{" "}
                 и{" "}
-                <a href="/legal/terms-of-use.md" target="_blank" className="text-primary underline">
+                <a href="/legal/terms-of-use" target="_blank" className="text-primary underline">
                   условиями использования
                 </a>
               </Label>
@@ -223,12 +223,12 @@ export function CartDialog({ open, onOpenChange }: CartDialogProps) {
             )}
 
             <Separator />
-            
+
             <div className="flex items-center justify-between">
               <span className="font-medium">Итого:</span>
               <span className="text-xl font-bold">{formatPrice(totalPrice)}</span>
             </div>
-            
+
             <DialogFooter className="gap-2">
               <Button type="button" variant="outline" onClick={handleBackToCart}>
                 Назад
@@ -297,14 +297,14 @@ export function CartDialog({ open, onOpenChange }: CartDialogProps) {
                 ))}
               </div>
             </ScrollArea>
-            
+
             <Separator />
-            
+
             <div className="flex items-center justify-between">
               <span className="font-medium">Итого:</span>
               <span className="text-xl font-bold">{formatPrice(totalPrice)}</span>
             </div>
-            
+
             <DialogFooter className="gap-2">
               <Button variant="outline" onClick={clearCart}>
                 Очистить
