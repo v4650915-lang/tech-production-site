@@ -39,7 +39,7 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           <Footer />
         </CartProvider>
-        <Toaster richColors position="top-right" />
+        <Toaster richColors position="top-right" duration={2000} />
       </body>
     </html>
   );

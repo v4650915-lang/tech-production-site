@@ -12,7 +12,7 @@ export function Footer() {
           <div>
             <h3 className="font-montserrat font-bold text-lg mb-4">ТЕХНОЛОГИЯ</h3>
             <p className="text-sm text-muted-foreground">
-              Рекламно-производственная компания полного цикла. 
+              Рекламно-производственная компания полного цикла.
               Широкоформатная печать, резка материалов, сувенирная продукция.
             </p>
           </div>
@@ -75,10 +75,10 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>© 2026 РПК «Технология». Все права защищены.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/legal/public-offer.md" target="_blank" className="hover:text-foreground underline">
+            <Link href="/legal/public-offer" target="_blank" className="hover:text-foreground underline">
               Публичная оферта
             </Link>
-            <Link href="/legal/terms-of-use.md" target="_blank" className="hover:text-foreground underline">
+            <Link href="/legal/terms-of-use" target="_blank" className="hover:text-foreground underline">
               Условия использования
             </Link>
           </div>

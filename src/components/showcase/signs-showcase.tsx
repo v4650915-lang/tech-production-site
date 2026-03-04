@@ -92,9 +92,12 @@ export function SignsShowcase() {
                   whileHover={{ y: -4 }}
                 >
                   <Card className="overflow-hidden cursor-pointer group h-full flex flex-col">
-                    <div 
-                      className="relative overflow-hidden aspect-[4/3]"
-                      onClick={() => setImageDialogOpen(true)}
+                    <div
+                      className="relative overflow-hidden aspect-[4/3] cursor-pointer"
+                      onClick={() => {
+                        setSelectedProduct(product);
+                        setImageDialogOpen(true);
+                      }}
                     >
                       <img
                         src={product.image_url}
@@ -108,28 +111,22 @@ export function SignsShowcase() {
                           </h3>
                         </div>
                       </div>
-                      <button 
-                        className="absolute top-4 right-4 p-2 bg-white/90 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedProduct(product);
-                        }}
-                      >
+                      <div className="absolute top-4 right-4 p-2 bg-white/90 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                         <ZoomIn className="h-5 w-5" />
-                      </button>
+                      </div>
                     </div>
-                    
+
                     <div className="p-4 flex-1 flex flex-col">
                       <p className="text-sm text-muted-foreground mb-4 flex-1">
                         {product.description}
                       </p>
-                      
+
                       <div className="flex items-center justify-between mt-auto">
                         <span className="text-lg font-bold font-montserrat">
                           {formatPrice(product.price)}
                         </span>
-                        <Button 
-                          size="sm" 
+                        <Button
+                          size="sm"
                           onClick={() => handleAddToCart(product)}
                           disabled={product.price === 0}
                         >
