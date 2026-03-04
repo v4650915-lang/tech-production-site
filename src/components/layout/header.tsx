@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, ShoppingCart, MapPin } from "lucide-react";
+import { Menu, X, Phone, ShoppingCart, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
@@ -52,12 +52,23 @@ export function Header() {
         {/* Right side */}
         <div className="flex items-center space-x-4">
           {/* Phone */}
-          <a 
-            href="tel:+73466312204" 
+          <a
+            href="tel:+73466312204"
             className="hidden lg:flex items-center space-x-2 text-sm font-medium"
           >
             <Phone className="h-4 w-4" />
             <span>8 (3466) 31-22-04</span>
+          </a>
+
+          {/* VK Manager Button */}
+          <a
+            href="https://vk.com/im?sel=5537151"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center space-x-2 text-sm font-medium px-3 py-1.5 rounded-md bg-[#0077FF] text-white hover:bg-[#0060CC] transition-colors"
+          >
+            <MessageCircle className="h-4 w-4" />
+            <span>Написать менеджеру</span>
           </a>
 
           {/* Cart */}
@@ -69,8 +80,8 @@ export function Header() {
           >
             <ShoppingCart className="h-5 w-5" />
             {totalItems > 0 && (
-              <Badge 
-                variant="destructive" 
+              <Badge
+                variant="destructive"
                 className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs"
               >
                 {totalItems}
@@ -97,13 +108,22 @@ export function Header() {
                     {link.label}
                   </Link>
                 ))}
-                <div className="pt-4 border-t">
-                  <a 
+                <div className="pt-4 border-t space-y-3">
+                  <a
                     href="tel:+73466312204"
                     className="flex items-center space-x-2 text-sm font-medium"
                   >
                     <Phone className="h-4 w-4" />
                     <span>8 (3466) 31-22-04</span>
+                  </a>
+                  <a
+                    href="https://vk.com/im?sel=5537151"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-sm font-medium px-3 py-2 rounded-md bg-[#0077FF] text-white hover:bg-[#0060CC] transition-colors"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    <span>Написать менеджеру ВК</span>
                   </a>
                 </div>
               </nav>

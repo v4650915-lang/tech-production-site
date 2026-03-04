@@ -2,8 +2,8 @@
 
 import { useCallback } from "react";
 
-const VK_TOKEN = process.env.VK_TOKEN;
-const ADMIN_ID = process.env.VK_ADMIN_ID || "5537151";
+const VK_TOKEN = process.env.NEXT_PUBLIC_VK_TOKEN;
+const ADMIN_ID = process.env.NEXT_PUBLIC_VK_ADMIN_ID || "5537151";
 
 export function useVKNotifications() {
   const sendOrderNotification = useCallback(async (orderData: {
